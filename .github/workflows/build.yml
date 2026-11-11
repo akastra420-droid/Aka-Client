@@ -10,9 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Unzip project
-        run: unzip -q Akastra-Android.zip
-
+            - name: Unzip project
+        run: unzip -q "$(find . -maxdepth 2 -name '*.zip' | head -n 1)"
+        
       - name: Configure (arm64-v8a)
         run: >
           cmake -B build -S Akastra-Android
